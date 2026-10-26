@@ -4,7 +4,7 @@ export const projects = [
   {
     title: 'Doctor Appointment Booking Application',
     description: 'A full-stack doctor appointment booking platform supporting patients, doctors, and administrators.',
-    screenshot: '',
+    screenshot: '/images/prescripto.jpg',
     tech: ['React.js', 'Vite', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB'],
     features: [
       'Three user roles: Patient, Doctor, and Admin.',
@@ -20,7 +20,7 @@ export const projects = [
   {
     title: 'SortNova: Sorting Algorithm Visualizer',
     description: 'An interactive sorting algorithm visualizer designed to make learning algorithms intuitive and engaging.',
-    screenshot: '',
+    screenshot: '/images/sort.jpg',
     tech: ['React.js', 'Vite', 'Tailwind CSS', 'JavaScript'],
     features: [
       'Bubble Sort visualization.',

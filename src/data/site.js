@@ -10,10 +10,10 @@ export const site = {
   email: 'sahir.masoodi@gmail.com',
   location: 'Srinagar, Jammu and Kashmir, India',
   resumeUrl: '/Sahir-Ul-Islam-Resume.pdf',
-  profileImage: '', // e.g. '/images/profile.jpg'
+  profileImage: '/images/profile.jpg', // e.g. '/images/profile.jpg'
   socials: {
-    github: '', // e.g. 'https://github.com/your-username'
-    linkedin: '', // e.g. 'https://www.linkedin.com/in/your-handle'
+    github: 'https://github.com/Sahirmasoodi', // e.g. 'https://github.com/your-username'
+    linkedin: 'https://www.linkedin.com/in/sahir-ul-islam', // e.g. 'https://www.linkedin.com/in/your-handle'
   },
 }
 
