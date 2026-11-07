@@ -1,18 +1,17 @@
-import { Github, Linkedin } from 'lucide-react'
 import { site } from '../data/site'
 
 export default function SocialLinks({ className = '' }) {
   const items = [
-    { href: site.socials.github, label: 'GitHub', Icon: Github },
-    { href: site.socials.linkedin, label: 'LinkedIn', Icon: Linkedin },
+    { href: site.socials.github, label: 'GitHub' },
+    { href: site.socials.linkedin, label: 'LinkedIn' },
   ].filter((i) => i.href)
   if (!items.length) return null
   return (
-    <div className={`flex gap-2 ${className}`}>
-      {items.map(({ href, label, Icon }) => (
+    <div className={`flex gap-4 font-mono text-sm font-bold ${className}`}>
+      {items.map(({ href, label }) => (
         <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={`${label} profile`}
-          className="grid h-11 w-11 place-items-center rounded-lg border border-line text-muted transition-colors hover:border-accent hover:text-accent">
-          <Icon size={18} aria-hidden />
+          className="border-b-2 border-fg pb-0.5 transition-colors hover:border-accent hover:text-accent">
+          {label}
         </a>
       ))}
     </div>

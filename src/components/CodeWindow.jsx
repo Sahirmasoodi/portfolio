@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 // token colors: k keyword, v variable, a attribute, s string, b boolean, p punctuation
-const color = { k: '#c4b5fd', v: '#e5e7eb', a: '#93c5fd', s: '#86efac', b: '#fca5a5', p: '#8b90a0' }
+const color = { k: 'rgb(var(--accent))', v: 'rgb(var(--fg))', a: 'rgb(var(--tint))', s: 'rgb(var(--fg))', b: 'rgb(var(--accent))', p: 'rgb(var(--muted))' }
 const lines = [
   [['const ', 'k'], ['sahir', 'v'], [' = {', 'p']],
   [['  name', 'a'], [': ', 'p'], ['"Sahir Ul Islam"', 's'], [',', 'p']],
@@ -27,10 +27,10 @@ export default function CodeWindow() {
   let budget = n
   return (
     <div role="img" aria-label="Code snippet describing Sahir Ul Islam: a MERN Stack Developer based in Srinagar, open to opportunities"
-      className="overflow-hidden rounded-2xl border border-white/10 bg-[#0e0f13] text-left shadow-2xl shadow-black/30">
-      <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3" aria-hidden>
-        <span className="h-3 w-3 rounded-full bg-[#ff5f57]" /><span className="h-3 w-3 rounded-full bg-[#febc2e]" /><span className="h-3 w-3 rounded-full bg-[#28c840]" />
-        <span className="ml-3 text-xs text-white/50">sahir.js</span>
+      className="border-2 border-fg bg-surface text-left shadow-hard">
+      <div className="flex items-center gap-3 border-b-2 border-dashed border-fg px-4 py-2.5" aria-hidden>
+        <span className="size-3 rounded-full border-2 border-fg bg-bg" />
+        <span className="font-mono text-sm text-muted">sahir.js</span>
       </div>
       <pre aria-hidden className="min-h-[15.5rem] overflow-x-auto p-5 font-mono text-[13px] leading-7 sm:text-sm">
         {lines.map((line, i) => {
@@ -47,7 +47,7 @@ export default function CodeWindow() {
           return (
             <div key={i}>
               {out}
-              {typing && <span className="ml-px inline-block h-4 w-[7px] translate-y-0.5 animate-pulse bg-violet-300 motion-reduce:animate-none" />}
+              {typing && <span className="ml-px inline-block h-4 w-[8px] translate-y-0.5 animate-pulse bg-accent motion-reduce:animate-none" />}
               {!out.length && '\u00a0'}
             </div>
           )

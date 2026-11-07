@@ -1,7 +1,15 @@
-import { motion, useScroll, useSpring } from 'framer-motion'
+import { useEffect, useState } from 'react'
 
 export default function ScrollProgress() {
-  const { scrollYProgress } = useScroll()
-  const scaleX = useSpring(scrollYProgress, { stiffness: 140, damping: 30, mass: 0.2 })
-  return <motion.div aria-hidden style={{ scaleX }} className="fixed inset-x-0 top-0 z-[60] h-0.5 origin-left bg-accent" />
+  const [p, setP] = useState(0)
+  useEffect(() => {
+    const on = () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight
+      setP(h > 0 ? Math.min(window.scrollY / h, 1) : 0)
+    }
+    on()
+    window.addEventListener('scroll', on, { passive: true })
+    return () => window.removeEventListener('scroll', on)
+  }, [])
+  return <div aria-hidden style={{ transform: `scaleX(${p})` }} className="fixed inset-x-0 top-0 z-[60] h-1 origin-left bg-accent" />
 }

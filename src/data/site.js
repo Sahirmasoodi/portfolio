@@ -9,7 +9,7 @@ export const site = {
   status: 'Open to Opportunities',
   email: 'sahir.masoodi@gmail.com',
   location: 'Srinagar, Jammu and Kashmir, India',
-  resumeUrl: '/Sahir-Ul-Islam-Resume.pdf',
+  resumeUrl: 'https://drive.google.com/file/d/1pIeLTB83zzARfuT_dnIf8CylTUu_dZQ1/view?usp=drive_link',
   profileImage: '/images/profile.jpg', // e.g. '/images/profile.jpg'
   socials: {
     github: 'https://github.com/Sahirmasoodi', // e.g. 'https://github.com/your-username'

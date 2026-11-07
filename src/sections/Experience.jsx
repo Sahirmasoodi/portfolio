@@ -1,24 +1,22 @@
-import { motion } from 'framer-motion'
 import Section from '../components/Section'
 import { experience } from '../data/experience'
 
 export default function Experience() {
   return (
     <Section id="experience" title="Work experience" lead="Most recent role first.">
-      <ol className="relative space-y-8 border-l border-line pl-6 sm:pl-10">
+      <ol className="space-y-14">
         {experience.map((job) => (
-          <motion.li key={job.company} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.45 }}
-            className="relative rounded-2xl border border-line bg-surface p-6 sm:p-8">
-            <span className="absolute -left-[31px] top-9 h-3 w-3 rounded-full border-2 border-accent bg-bg sm:-left-[47px]" aria-hidden />
-            <h3 className="font-display text-2xl font-bold">{job.role}</h3>
-            <p className="mt-1 font-medium text-accent">{job.company}</p>
-            <p className="mt-0.5 text-sm text-muted">{job.meta}</p>
-            <ul className="mt-5 space-y-2.5">
+          <li key={job.company} className="relative border-2 border-fg bg-surface p-6 shadow-hard odd:lg:mr-16 odd:lg:-rotate-[.5deg] even:lg:ml-16 even:lg:rotate-[.5deg] sm:p-8">
+            <span aria-hidden className="absolute -top-3 left-6 h-6 w-20 bg-accent/80" />
+            <p className="font-mono text-sm text-muted">{job.meta}</p>
+            <h3 className="mt-1 font-display text-5xl font-black uppercase leading-[.9]">{job.company}</h3>
+            <p className="mt-1 font-display text-2xl font-bold uppercase text-accent">{job.role}</p>
+            <ul className="mt-6 space-y-2.5 border-t-2 border-dashed border-fg/60 pt-5">
               {job.points.map((p) => (
-                <li key={p} className="flex gap-3 text-muted"><span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden />{p}</li>
+                <li key={p} className="flex max-w-[70ch] gap-3"><span aria-hidden className="font-mono text-accent">–</span>{p}</li>
               ))}
             </ul>
-          </motion.li>
+          </li>
         ))}
       </ol>
     </Section>

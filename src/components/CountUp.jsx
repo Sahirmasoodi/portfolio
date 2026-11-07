@@ -1,10 +1,18 @@
 import { useEffect, useRef, useState } from 'react'
-import { useInView } from 'framer-motion'
 
 export default function CountUp({ to, prefix = '', suffix = '' }) {
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true })
+  const [inView, setInView] = useState(false)
   const [v, setV] = useState(0)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setInView(true); io.disconnect() } })
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
+
   useEffect(() => {
     if (!inView) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { setV(to); return }

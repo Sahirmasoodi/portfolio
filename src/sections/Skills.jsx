@@ -4,19 +4,18 @@ import { skillCategories } from '../data/skills'
 export default function Skills() {
   return (
     <Section id="skills" title="Technical skills" lead="The languages, frameworks and tools I use day to day.">
-      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {skillCategories.map(({ title, icon: Icon, items }) => (
-          <div key={title} className="rounded-2xl border border-line bg-surface p-6">
-            <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-lg bg-accent/15 text-accent"><Icon size={20} aria-hidden /></span>
-              <h3 className="font-display text-lg font-bold">{title}</h3>
-            </div>
-            <ul className="mt-5 flex flex-wrap gap-2">
-              {items.map((s) => <li key={s} className="badge">{s}</li>)}
-            </ul>
+      <dl className="border-b-2 border-fg">
+        {skillCategories.map(({ title, items }) => (
+          <div key={title} className="group grid gap-x-8 gap-y-2 border-t-2 border-fg py-5 transition-colors hover:bg-surface md:grid-cols-[14rem_1fr]">
+            <dt className="font-display text-3xl font-black uppercase leading-none transition-colors group-hover:text-accent">{title}</dt>
+            <dd>
+              <ul className="flex flex-wrap gap-x-2 gap-y-1 font-mono text-base">
+                {items.map((s) => <li key={s} className="after:ml-2 after:text-accent after:content-['/'] last:after:content-['']">{s}</li>)}
+              </ul>
+            </dd>
           </div>
         ))}
-      </div>
+      </dl>
     </Section>
   )
 }

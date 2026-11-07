@@ -1,4 +1,3 @@
-import { Sun, Moon } from 'lucide-react'
 import { useTheme } from '../context/ThemeContext'
 
 export default function ThemeToggle() {
@@ -6,8 +5,8 @@ export default function ThemeToggle() {
   const next = theme === 'dark' ? 'light' : 'dark'
   return (
     <button onClick={toggle} aria-label={`Switch to ${next} theme`} title={`Switch to ${next} theme`}
-      className="grid h-10 w-10 place-items-center rounded-lg border border-line text-muted transition-colors hover:border-accent hover:text-accent">
-      {theme === 'dark' ? <Sun size={18} aria-hidden /> : <Moon size={18} aria-hidden />}
+      className="grid size-10 place-items-center border-2 border-fg transition-colors hover:bg-fg hover:text-bg">
+      <span aria-hidden className={`size-4 rounded-full border-2 border-current bg-[linear-gradient(90deg,currentColor_50%,transparent_50%)] transition-transform duration-500 ${theme === 'dark' ? 'rotate-180' : ''}`} />
     </button>
   )
 }
